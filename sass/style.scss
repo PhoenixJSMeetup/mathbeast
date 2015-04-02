@@ -1,0 +1,28 @@
+// Screen
+// ======
+
+@import "normalize";
+@import "grids";
+
+.canvas {
+  height: 200px;
+  width: 100%;
+  background-color: #000;
+  position:relative;
+}
+.lane {
+  height:48px;
+  border-top:1px solid #333;
+  border-bottom:1px solid #333;
+}
+#subject {
+  font-size:50px;
+  line-height:25px;
+  color:#ccc;
+  position:absolute;
+  top:0;
+}
+footer {
+  margin-top: 10px;
+
+}

@@ -1,0 +1,38 @@
+// Requirements
+// ============
+
+@import "susy";
+@import "breakpoint";
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+);
+
+$bkpt: 20em;
+
+.wrap {
+  @include container(40em);
+}
+
+header {
+  @include container(12);
+
+  .header-left {
+    @include breakpoint($bkpt) {
+      @include span(4 of 6);
+    }
+    background-color: #eee;
+  }
+
+  .header-right {
+    @include breakpoint($bkpt) {
+      @include span(2 of 6 last);
+    }
+    background-color: #ddd;
+  }
+  background-color: #ccc;
+}
+
+main {
+}
