@@ -280,11 +280,16 @@ th {
 }
 
 /* line 18, ../sass/_grids.scss */
+.region {
+  padding: 0 .5em;
+}
+
+/* line 22, ../sass/_grids.scss */
 header {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: #ccc;
+  background-color: #e8e8e8;
 }
 /* line 12, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.2/sass/susy/output/support/_clearfix.scss */
 header:after {
@@ -292,24 +297,16 @@ header:after {
   display: block;
   clear: both;
 }
-/* line 21, ../sass/_grids.scss */
-header .header-left {
-  background-color: #eee;
-}
 @media (min-width: 20em) {
-  /* line 21, ../sass/_grids.scss */
+  /* line 25, ../sass/_grids.scss */
   header .header-left {
     width: 65.51724%;
     float: left;
     margin-right: 3.44828%;
   }
 }
-/* line 28, ../sass/_grids.scss */
-header .header-right {
-  background-color: #ddd;
-}
 @media (min-width: 20em) {
-  /* line 28, ../sass/_grids.scss */
+  /* line 31, ../sass/_grids.scss */
   header .header-right {
     width: 31.03448%;
     float: right;
@@ -317,31 +314,99 @@ header .header-right {
   }
 }
 
-/* line 7, ../sass/style.scss */
+/* line 39, ../sass/_grids.scss */
+main {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.2/sass/susy/output/support/_clearfix.scss */
+main:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+/* line 8, ../sass/style.scss */
 .canvas {
-  height: 200px;
+  min-height: 300px;
+  min-width: 300px;
   width: 100%;
-  background-color: #000;
   position: relative;
 }
 
-/* line 13, ../sass/style.scss */
-.lane {
-  height: 48px;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+/* line 15, ../sass/style.scss */
+footer {
+  margin-top: 10px;
 }
 
 /* line 18, ../sass/style.scss */
-#subject {
-  font-size: 50px;
-  line-height: 25px;
-  color: #ccc;
-  position: absolute;
-  top: 0;
+.footer-region {
+  text-align: right;
 }
 
-/* line 25, ../sass/style.scss */
-footer {
-  margin-top: 10px;
+/* line 22, ../sass/style.scss */
+.settings-button-region {
+  text-align: right;
+}
+
+/* line 26, ../sass/style.scss */
+.settings-button {
+  background-color: #999;
+  border: 1px solid #727272;
+  border-radius: 5px;
+  padding: .5em 1em;
+  color: #fff;
+  margin-top: 1em;
+}
+/* line 8, ../sass/_mixins.scss */
+.settings-button:hover {
+  cursor: pointer;
+  background-color: #828282;
+  border-color: #5b5b5b;
+}
+
+/* line 31, ../sass/style.scss */
+.settings-region {
+  text-align: center;
+  background-color: #333;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+/* line 37, ../sass/style.scss */
+.settings-region div {
+  margin: 1em 0;
+}
+/* line 40, ../sass/style.scss */
+.settings-region input, .settings-region select {
+  font-size: 1.5em;
+  text-align: center;
+  padding: .25em;
+  min-width: 300px;
+}
+/* line 46, ../sass/style.scss */
+.settings-region .ui-selectmenu-text {
+  display: inline-block !important;
+  font-size: 1.5em;
+  padding: 0em !important;
+  color: #999;
+}
+/* line 52, ../sass/style.scss */
+.settings-region input {
+  border-radius: 10px;
+}
+
+/* line 57, ../sass/style.scss */
+.settings-save {
+  background-color: #999;
+  border: 1px solid #727272;
+  border-radius: 5px;
+  padding: .5em 1em;
+  color: #fff;
+}
+/* line 8, ../sass/_mixins.scss */
+.settings-save:hover {
+  cursor: pointer;
+  background-color: #828282;
+  border-color: #5b5b5b;
 }

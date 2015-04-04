@@ -2,21 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <title>MathBeast</title>
-
-  <!-- Enter a brief description of your page -->
   <meta name="description" content="">
-
-  <!-- Define a viewport to mobile devices to use - telling the browser to assume that the page is as wide as the device (width=device-width) and setting the initial page zoom level to be 1 (initial-scale=1.0) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Include the site stylesheet -->
   <link href="css/style.css" rel="stylesheet" media="all">
-
-  <!-- Include subject object -->
-  <script src="js/mathbeast.js" media="all"></script>
-
 </head>
 <body>
 
@@ -25,32 +14,57 @@
   <header role="banner">
 
     <div class="header-left">
-      <h1 class="game-name">MathBeast</h1>
+      <section class="region brand-region">
+        <h1 class="game-name">MathBeast</h1>
+      </section>
     </div>
 
     <div class="header-right">
+      <section class="region settings-button-region">
+        <button class="settings-button">Settings</button>
+      </section>
     </div>
 
   </header>
 
   <main role="main">
 
+    <div class="settings">
+      <section class="region settings-region">
+        <div><input id="upperLimitInput" placeholder="Upper Limit" /></div>
+        <div><input id="lowerLimitInput" placeholder="Lower Limit"/></div>
+        <div>
+          <select id="operatorInput">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+        </div>
+        <div>
+          <button class="settings-save">Save</button>
+        </div>
+      </section>
+    </div>
+
     <section class="canvas">
-
-      <div class=""></div>
-
     </section>
 
   </main>
 
   <footer role="contentinfo">
-
-    <small>Copyright &copy; MathBeast <time datetime="2015">2015</time></small>
-
+    <section class="region footer-region">
+      <p><small>Copyright &copy; MathBeast <time datetime="2015">2015</time></small></p>
+    </section>
   </footer>
 
 </div>
 
+<script src="lib/jquery/jquery-2.1.3.min.js" media="all"></script>
+<script src="lib/jquery-ui/jquery-ui.min.js" media="all"></script>
+<link href="lib/jquery-ui/jquery-ui.css" rel="stylesheet" media="all">
+
+<script src="js/mathbeast.js" media="all"></script>
 <script src="js/app.js" media="all"></script>
 
 </body>

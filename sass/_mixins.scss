@@ -1,0 +1,14 @@
+@mixin button($txt, $bg) {
+  background-color: $bg;
+  border: 1px solid mix(black, $bg, 25%);
+  border-radius: 5px;
+  padding:.5em 1em;
+  color: $txt;
+
+  &:hover {
+    cursor: pointer;
+    background-color: mix(black, $bg, 15%);
+    border-color: mix(black, $bg, 40%);
+  }
+}
+

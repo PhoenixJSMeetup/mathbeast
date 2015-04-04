@@ -15,6 +15,10 @@ $bkpt: 20em;
   @include container(40em);
 }
 
+.region {
+  padding:0 .5em;
+}
+
 header {
   @include container(12);
 
@@ -22,17 +26,21 @@ header {
     @include breakpoint($bkpt) {
       @include span(4 of 6);
     }
-    background-color: #eee;
   }
 
   .header-right {
     @include breakpoint($bkpt) {
       @include span(2 of 6 last);
     }
-    background-color: #ddd;
   }
-  background-color: #ccc;
+  background-color: #e8e8e8;
 }
 
 main {
+  @include container(12);
+
+  .settings {
+
+  }
+
 }

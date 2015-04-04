@@ -3,26 +3,57 @@
 
 @import "normalize";
 @import "grids";
+@import "mixins";
 
 .canvas {
-  height: 200px;
+  min-height: 300px;
+  min-width: 300px;
   width: 100%;
-  background-color: #000;
   position:relative;
 }
-.lane {
-  height:48px;
-  border-top:1px solid #333;
-  border-bottom:1px solid #333;
-}
-#subject {
-  font-size:50px;
-  line-height:25px;
-  color:#ccc;
-  position:absolute;
-  top:0;
-}
+
 footer {
   margin-top: 10px;
+}
+.footer-region {
+  text-align: right;
+}
 
+.settings-button-region {
+  text-align: right;
+}
+
+.settings-button {
+  @include button(#fff, #999);
+  margin-top:1em;
+}
+
+.settings-region {
+  text-align: center;
+  background-color: #333;
+  padding-top:1em;
+  padding-bottom:1em;
+
+  div {
+    margin:1em 0;
+  }
+  input, select {
+    font-size:1.5em;
+    text-align: center;
+    padding:.25em;
+    min-width: 300px;
+  }
+  .ui-selectmenu-text {
+    display: inline-block !important;
+    font-size:1.5em;
+    padding:0em !important;
+    color:#999;
+  }
+  input {
+    border-radius: 10px;
+  }
+}
+
+.settings-save {
+  @include button(#fff, #999);
 }
