@@ -1,0 +1,45 @@
+/* General */
+body {
+  background-color: #f8f8f8;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color:#fff;
+}
+.game-name,
+.settings-button {
+  margin:10px 0;
+}
+
+/* Settings */
+.settings {
+  background-color: #ccc;
+}
+.settings .wrapper {
+  margin:10px 20px 10px 0;
+  display: inline-block;
+}
+
+/* Main */
+main {
+  background-color: #fff;
+  min-height: 160px;
+}
+.instructions {
+}
+.question {
+  font-size:36px;
+  padding:40px 0 20px;
+  display: none;
+}
+.answers {
+  padding:20px 0 40px;
+  display: none;
+}
+
+/* Footer */
+footer {
+  background-color: #e8e8e8;
+}
