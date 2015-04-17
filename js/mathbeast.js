@@ -186,12 +186,12 @@ var MathBeast = {
   },
 
   /**
-   * Return numbers that are close to correct result
+   * Return numbers that are close to correct result (about 10% close)
    *
-   * @param {number} Upper limit for operands
+   * @param {number} correct answer
    * @return {array} List of one right answer and two wrong answers
    */
-  getAnswerOptions: function() {
+  getAnswerOptions: function(answer) {
     // TODO
     return [7, 10, 11];
   }
