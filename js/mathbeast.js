@@ -14,7 +14,9 @@ var MathBeast = {
   settings: {
     upperLimit: 0,
     operation: '',
-    totalQuestions: 0
+    totalQuestions: 0,
+    wrongAnswersPerQuestion: 2,
+    wrongAnswerClosenessInPercentage: 10
   },
 
   // State variables
@@ -28,6 +30,8 @@ var MathBeast = {
    * @param {number} Upper limit for operands
    * @param {string} The operation
    * @param {number} Number of questions
+   *
+   * @TODO allow rest of the settings to be configurable
    */
   start: function(upperLimit, operation, totalQuestions) {
     var validOptions = true;
@@ -58,6 +62,7 @@ var MathBeast = {
       this.settings.totalQuestions = totalQuestions;
       this.currentQuestion = 0;
       this.attempts = 0;
+      this.questions = [];
       this.questions = this.getQuestions();
     }
 
@@ -86,6 +91,14 @@ var MathBeast = {
   getQuestion: function() {
     var operand1 = this.getOperand();
     var operand2 = this.getOperand();
+
+    // Avoid divide by zero operation
+    if (this.settings.operation === '/') {
+      while (operand2 === 0) {
+        operand2 = this.getOperand();
+      }
+    }
+
     var operation = this.settings.operation;
     var answer = this.getAnswer(operand1, operand2);
     var answerOptions = this.getAnswerOptions(answer);
@@ -144,7 +157,7 @@ var MathBeast = {
     };
 
     // Get current question
-    currentQuestion = this.getCurrentQuestion();
+    var currentQuestion = this.getCurrentQuestion();
 
     // Check if attempted answer matches correct answer
     if (attemptedAnswer === currentQuestion.answer) {
@@ -169,8 +182,13 @@ var MathBeast = {
    * @return {number} Random number
    */
   getOperand: function() {
-    // TODO
-    return 5;
+    // Get upper limit
+    var upperLimit = this.settings.upperLimit;
+
+    // Random value between 0 and upperLimit
+    var randomValue = Math.floor(Math.random() * (upperLimit + 1));
+
+    return randomValue;
   },
 
   /**
@@ -181,19 +199,112 @@ var MathBeast = {
    * @return {number} Result of math calculation
    */
   getAnswer: function(operand1, operand2) {
-    // TODO
-    return 10;
+    // Get operator
+    var operator = this.settings.operation;
+
+    return this.performMathOperation[operator](operand1, operand2);
   },
 
   /**
-   * Return numbers that are close to correct result (about 10% close)
+   * Object that contains multiple math operations
    *
-   * @param {number} correct answer
-   * @return {array} List of one right answer and two wrong answers
+   */
+  performMathOperation: {
+    // Addition
+    '+': function(x, y) { return x + y},
+
+    // Subtraction
+    '-': function(x, y) { return x - y},
+
+    // Multiplication
+    '*': function(x, y) { return x * y},
+
+    // Division
+    '/': function(x, y) {
+
+      // Don't allow a divide by zero division
+      if (y === 0) {
+        throw {
+          name: "invalidOperation",
+          message: "Divide by zero is not allowed."
+        };
+      }
+
+      return x / y;
+    }
+  },
+
+  /**
+   * Return numbers that are close to correct result
+   *
+   * @param {number/string} correct answer
+   * @return {array} The correct answer and some wrong answers
    */
   getAnswerOptions: function(answer) {
-    // TODO
-    return [7, 10, 11];
+    // How close should the wrong answers be
+    var closeness = this.settings.wrongAnswerClosenessInPercentage;
+    // How many answer options
+    var optionsCardinality = this.settings.wrongAnswersPerQuestion + 1;
+
+    // Answer options
+    var options = [answer];
+
+    // Calculate % of correct answer
+    var fraction = Math.ceil(answer * (closeness / 100));
+
+    // Avoid having all answers equal to zero
+    if (fraction === 0) {
+      fraction = 1;
+    }
+
+    var lowerBound = answer - fraction;
+    var upperBound = answer + fraction;
+    var possibleAnswersRange = upperBound - lowerBound + 1;
+
+    // Limit number of answers
+    if (possibleAnswersRange < optionsCardinality) {
+      optionsCardinality = possibleAnswersRange;
+    }
+
+    while (options.length < optionsCardinality) {
+      // Random value between 0 and upperLimit
+      var option = Math.floor(Math.random() * possibleAnswersRange) + lowerBound;
+
+      // Make sure option is not already in options array
+      while (options.indexOf(option) !== -1) {
+        option = Math.floor(Math.random() * possibleAnswersRange) + lowerBound;
+      }
+
+      // Add option to options array
+      options.push(option);
+    }
+
+    return this.shuffle(options);
+  },
+
+  shuffle: function(items) {
+    var shuffledItems = [];
+    var randomIndex = 0;
+
+    // Shuffle items
+    while (shuffledItems.length < items.length) {
+
+      // Random value between 0 and items.length - 1
+      randomIndex  = Math.floor(Math.random() * items.length);
+
+      // If element isn't false, add element to shuffled items
+      if(items[randomIndex]) {
+
+        // Add new element to shuffled items
+        shuffledItems.push(items[randomIndex]);
+
+        // Set element to false to avoid being reused
+        items[randomIndex] = false;
+      }
+
+    }
+
+    return shuffledItems;
   }
 
 };

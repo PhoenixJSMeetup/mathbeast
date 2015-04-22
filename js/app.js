@@ -15,7 +15,7 @@
   $('.settings-save').click(function() {
     var upperLimit = $('#upper-limit').val();
     var operation = $('#operation .ui-state-active span').text();
-    var totalQuestions = 4;
+    var totalQuestions = 10;
 
     // Initialize game
     MathBeast.start(parseInt(upperLimit), operation, parseInt(totalQuestions));
@@ -31,7 +31,7 @@
     $('#answers--option-2').text(question.answerOptions[1]);
     $('#answers--option-3').text(question.answerOptions[2]);
 
-    $('main .instructions').fadeOut();
+    $('main .status').fadeOut();
     $('main .question').fadeIn();
     $('main .answers').fadeIn();
   });
@@ -55,9 +55,14 @@
       else {
         var attempts = MathBeast.attempts;
         var totalQuestions = MathBeast.settings.totalQuestions;
+
         console.log("Game Over!");
         console.log("Questions: " + totalQuestions);
         console.log("Attempts: " + attempts);
+        $('main .results').text('Game Over! You answered ' + totalQuestions +
+        ' in ' + attempts + ' attempts.');
+        $('main .message').text('Click Start to play again.');
+        $('main .status').fadeIn();
       }
     }
     else {
