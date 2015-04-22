@@ -29,6 +29,9 @@ main {
 }
 .status {
 }
+.question-number-wrapper {
+  background-color: #e8e8e8;
+}
 .question {
   font-size:36px;
   padding:40px 0 20px;

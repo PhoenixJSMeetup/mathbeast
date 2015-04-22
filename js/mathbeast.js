@@ -62,7 +62,6 @@ var MathBeast = {
       this.settings.totalQuestions = totalQuestions;
       this.currentQuestion = 0;
       this.attempts = 0;
-      this.questions = [];
       this.questions = this.getQuestions();
     }
 
@@ -160,7 +159,7 @@ var MathBeast = {
     var currentQuestion = this.getCurrentQuestion();
 
     // Check if attempted answer matches correct answer
-    if (attemptedAnswer === currentQuestion.answer) {
+    if (attemptedAnswer == currentQuestion.answer) {
       // Update result type
       result.rightAnswer = true;
 
@@ -229,8 +228,8 @@ var MathBeast = {
           message: "Divide by zero is not allowed."
         };
       }
-
-      return x / y;
+      // Round to two decimal places
+      return Math.round((x / y) * 100) / 100;
     }
   },
 
@@ -257,8 +256,8 @@ var MathBeast = {
       fraction = 1;
     }
 
-    var lowerBound = answer - fraction;
-    var upperBound = answer + fraction;
+    var lowerBound = Math.round((answer - fraction) * 100) / 100;
+    var upperBound = Math.round((answer + fraction) * 100) / 100;
     var possibleAnswersRange = upperBound - lowerBound + 1;
 
     // Limit number of answers
@@ -293,7 +292,7 @@ var MathBeast = {
       randomIndex  = Math.floor(Math.random() * items.length);
 
       // If element isn't false, add element to shuffled items
-      if(items[randomIndex]) {
+      if(items[randomIndex] !== false ) {
 
         // Add new element to shuffled items
         shuffledItems.push(items[randomIndex]);
