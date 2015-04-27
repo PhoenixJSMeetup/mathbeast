@@ -47,29 +47,10 @@
 
     countDown.run()
 
-    var loop = setInterval(function(){
-      var result = MathBeast.attempt($(this).text());
-       if (result.rightAnswer) {
-
-      //reinitialize the timer
-      countDown.clear().run()
-      if (result.nextQuestion) {
-
-        var question = result.nextQuestion;
-
-        // Update question number
-        $('#question--number').text(MathBeast.currentQuestion + 1);
-
-        // Fill in question and answer values on markup
-        $('#question--operand-1').text(question.operand1);
-        $('#question--operation').text(question.operation);
-        $('#question--operand-2').text(question.operand2);
-        $('#answers--option-1').text(question.answerOptions[0]);
-        $('#answers--option-2').text(question.answerOptions[1]);
-        $('#answers--option-3').text(question.answerOptions[2]);
-      }
-    }
-    }, MathBeast.settings.timer);
+    // var loop = setInterval(function(){
+      
+      
+    // }, MathBeast.settings.timer);
 
     
 
