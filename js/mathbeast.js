@@ -299,7 +299,7 @@ var MathBeast = {
       randomIndex = Math.floor(Math.random() * items.length);
 
       // If element isn't false, add element to shuffled items
-      if (items[randomIndex] !== false) {
+      if(items[randomIndex] !== false ) {
 
         // Add new element to shuffled items
         shuffledItems.push(items[randomIndex]);
@@ -312,6 +312,5 @@ var MathBeast = {
 
     return shuffledItems;
   }
-
 
 };

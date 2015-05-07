@@ -1,12 +1,4 @@
 (function($) {
-  /**
-   * Settings
-   */
-  // Show and hide settings
-  //$('.settings-button').click(function() {
-  //    $('.settings').fadeToggle();
-  //  }
-  //);
 
   // Use JQuery UI to replace operator dropdown with selectmenu widget
   $('#operation').buttonset();
@@ -45,22 +37,14 @@
     $('main .answers').fadeIn();
     $('main .timer').fadeIn();
 
-    countDown.run()
-
-    // var loop = setInterval(function(){
-      
-      
-    // }, MathBeast.settings.timer);
-
-    
+    countDown.run();
 
   });
-  // Next Question
 
+  // Next Question
   $('.answers .answer-option').click(function() {
 
     // Get current question
-
     var result = MathBeast.attempt($(this).text());
     if (result.rightAnswer) {
 
@@ -106,8 +90,7 @@
     }
   });
 
-
-  countDown = {
+  var countDown = {
     run: function() {
       var newTimer = $("<div class='bar'></div>");
       $("#timerContainer").append(newTimer);
@@ -116,20 +99,15 @@
         "width": "0",
         "padding": "0"
       }, time, function() {
-        this.remove()
+        this.remove();
       })
     },
 
-
     clear: function() {
       $(".bar").remove();
-      return this
+      return this;
     }
 
-
   };
-
-
-
 
 }(jQuery));
