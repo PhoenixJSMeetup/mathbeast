@@ -7,12 +7,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-], function($, _, Backbone) {
+    'views/appView'
+], function($, _, Backbone,appView) {
 
 
     return {
         initialize: function() {
-            alert("app load")
+            var myApp = new appView()
         }
     };
 });
