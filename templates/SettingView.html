@@ -4,21 +4,21 @@
         <label>Upper limit:</label>
         <input id="upper-limit" value="12"/>
       </div>
-      <div class="operation-wrapper wrapper">
+      <form class="operation-wrapper wrapper">
         <div id="operation" >
-          <input type="radio" id="addition" name="operation" checked="checked">
+          <input type="radio" value="+" id="addition" name="operation" checked="checked">
           <label for="addition">+</label>
 
-          <input type="radio" id="subtraction" name="operation">
+          <input type="radio" value="-" id="subtraction" name="operation">
           <label for="subtraction">-</label>
 
-          <input type="radio" id="multiplication" name="operation">
+          <input type="radio" value="*" id="multiplication" name="operation">
           <label for="multiplication">*</label>
 
-          <input type="radio" id="division" name="operation">
+          <input type="radio" value="/" id="division" name="operation">
           <label for="division">/</label>
         </div>
-      </div>
+      </form>
       <div class="settings-save-wrapper wrapper">
         <button class="settings-save btn btn-default">Start</button>
       </div>

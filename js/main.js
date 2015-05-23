@@ -9,6 +9,7 @@ require.config({
         jquery: 'lib/jquery/jquery-2.1.3.min',
         underscore: 'lib/underscore.min',
         backbone: 'lib/backbone.min',
+        MathBeast:'lib/mathbeast',
         app: 'app',
         views: 'views',
         templates:'../templates',
