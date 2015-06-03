@@ -25,6 +25,9 @@ define([
 			$("body").on("rightAnswer",function(event,data){
 				_this.countDown.clear().run()
 			})
+			$("body").on("end",function(){
+				_this.countDown.clear();
+			})
 		},
 		renderSettingView:function(){
 			var mySettingView = new SettingView({

@@ -40,7 +40,7 @@ define([
 		        $('#answers--option-2').text(question.answerOptions[1]);
 		        $('#answers--option-3').text(question.answerOptions[2]);
 		      } else {
-		        countDown.clear()
+		      	$("body").trigger("end");
 		        var attempts = MathBeast.attempts;
 		        var totalQuestions = MathBeast.settings.totalQuestions;
 
