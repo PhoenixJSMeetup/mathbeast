@@ -7,7 +7,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/appView'
+    'views/introductionView'
 ], function($, _, Backbone,appView) {
 
 
