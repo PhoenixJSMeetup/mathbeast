@@ -4,7 +4,7 @@ define([
     'backbone',
     'MathBeast',
     'views/outroView',
-    'text!templates/outroView.html'
+    'text!templates/OutroView.html'
 ], function ($, _, Backbone, MathBeast, OutroView, template) {
 
     var OutroView = Backbone.View.extend({

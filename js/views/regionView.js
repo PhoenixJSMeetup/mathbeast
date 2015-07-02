@@ -4,7 +4,7 @@ define([
     'backbone',
     'MathBeast',
     'views/regionView',
-    'text!templates/regionView.html',
+    'text!templates/RegionView.html',
     'views/appView',
     'views/outroView'
 ], function ($, _, Backbone, MathBeast, RegionView, template, appView, outroView) {
