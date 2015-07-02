@@ -15,23 +15,31 @@ define([
 
 		template:template,
 
-		initialize:function(){
+		initialize:function(operation,RegionView){
 			var _this = this;
 			this.$el.html(_this.template);
-			this.renderSettingView();
-			$("body").on("startGame",function(event,data){
-				_this.renderMainView()
-			})
+            this.operation = operation;
+		    this.renderMainView();
 			$("body").on("rightAnswer",function(event,data){
 				_this.countDown.clear().run()
 			})
 			$("body").on("end",function(){
 				_this.countDown.clear();
-			})
-		},
-		renderSettingView:function(){
-			var mySettingView = new SettingView({
-				el:$(".setting")
+                //logic for determining passing
+                switch(_this.operation){
+                    case '+':
+                        new RegionView('one');
+                        break;
+                    case '-':
+                        new RegionView('two');
+                        break;
+                    case '*':
+                        new RegionView('three');
+                        break;
+                    case '/':
+                        new RegionView('four');
+                        break;
+                }
 			})
 		},
 		renderMainView:function(){
@@ -41,13 +49,12 @@ define([
 			this.startGame();
 		},
 		startGame:function(){
-			var upperLimit = $('#upper-limit').val();
-		    var operation = $('.operation-wrapper input[type = "radio"]:checked').val();
-		    console.log(operation)
-		    var totalQuestions = 10;
+			var upperLimit = 1;
+		    var operation = this.operation;
+            var totalQuestions = 1;
 
 		    // Initialize game
-		    MathBeast.start(parseInt(upperLimit), operation, parseInt(10));
+		    MathBeast.start(parseInt(upperLimit), operation, parseInt(totalQuestions));
 
 		    // Get first question
 		    var question = MathBeast.getCurrentQuestion();
