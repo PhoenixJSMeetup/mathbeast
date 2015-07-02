@@ -128,7 +128,7 @@
       },
 
       /**
-       * Get current question
+       * Get next question
        *
        * @return {object} Question and answer options
        */
@@ -146,7 +146,7 @@
       },
 
       /**
-       * Get current question
+       * Attempt to solve question by providing answer as argument
        *
        * @param {number}
        * @return {object} Question and answer options
@@ -321,5 +321,4 @@
     };
   return MathBeast;
 })
-
 
