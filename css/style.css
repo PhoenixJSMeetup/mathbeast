@@ -1,7 +1,9 @@
 html,
 body,
 #mathBeast-container,
-#introduction {
+#introduction,
+#region,
+#outro{
     width: 100%;
     height: 100%;
 }
@@ -9,81 +11,6 @@ body,
 body,
 #mathBeast-container {
     display: inline-block;
-}
-
-#introduction {
-    background: black;
-}
-
-#introduction > .planet {
-    width: 100%;
-    height: 0%;
-    position: relative;
-    top: 50%;
-    transition: top 3s linear, height 3s linear, opacity .5s linear;
-}
-
-#introduction.play > .planet {
-    height: 100%;
-    top: 0%;
-}
-
-#introduction > .rocket {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    left: 0%;
-    transition: width 3s linear, height 3s linear, top 3s linear, left 3s linear, transform 3s ease-in, opacity .5s linear;
-    transform: rotate(0deg) skewX(0deg);
-}
-
-#introduction.play > .rocket {
-    top: 50%;
-    left: 50%;
-    height: 1%;
-    width: 1%;
-    transform: rotate(360deg) skewX(40deg);
-}
-
-#introduction > .explosion {
-    position: fixed;
-    width: 0%;
-    height: 0%;
-    top: 53%;
-    left: 50.5%;
-    opacity: 0;
-    transition: width .5s linear, height .5s linear, top .5s linear, left .5s linear, opacity .5s linear;
-}
-
-#introduction.explosion > .explosion {
-    opacity: 1;
-    width: 20%;
-    height: 20%;
-    top: 33%;
-    left: 40.5%;
-}
-
-#introduction > .welcome {
-    position: fixed;
-    left: 10%;
-    top: 0%;
-    width: 80%;
-    height: 100%;
-    font-size: 3em;
-    color: gold;
-    transition: transform 15s linear;
-    transform: translateY(100%);
-}
-
-#introduction.welcome > .welcome {
-    transform: translateY(-100%);
-}
-
-#introduction.welcome > .planet,
-#introduction.welcome > .rocket,
-#introduction.welcome > .explosion{
-    opacity: .6;
 }
 /* General */
 
