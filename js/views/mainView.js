@@ -10,28 +10,20 @@ define([
 
         template:template,
 
-        initialize:function(){
+        initialize: function() {
             var _this = this;
             this.$el.html(_this.template);
 
         },
-        checkAndContinue:function(e){
+        checkAndContinue: function(e) {
 
-            // Get current question
+            // Once an attempt is made, a result object is returned.
+            // This object contains information about the
+            // correctness of the answer choice.
             var result = MathBeast.attempt($(e.target).html());
 
-            if (result.rightAnswer) {
-
-                //reinitialize the timer
-                $("body").trigger("rightAnswer")
-                console.log("Right Answer");
-
-            } else {
-
-                $("body").trigger("wrongAnswer")
-                console.log("Wrong Answer.");
-
-            }
+            // Calling the answerQuestion event will clear the timer
+            this.$el.trigger("answerQuestion", result.rightAnswer);
 
             if (result.nextQuestion) {
 
@@ -50,13 +42,9 @@ define([
 
             } else {
 
-                $("body").trigger("end");
+                this.$el.trigger("endStage");
                 var attempts = MathBeast.attempts;
                 var totalQuestions = MathBeast.settings.totalQuestions;
-
-                console.log("Game Over!");
-                console.log("Questions: " + totalQuestions);
-                console.log("Attempts: " + attempts);
 
                 // Disable multiple choices
                 $('#answers--option-1').attr('disabled', 'disabled');
@@ -70,7 +58,7 @@ define([
 
             }
         },
-        events:{
+        events: {
             'click .answer-option':'checkAndContinue'
         }
     });

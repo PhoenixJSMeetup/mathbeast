@@ -15,45 +15,23 @@ define([
 
         template:template,
 
-        initialize:function(operation,RegionView){
+        initialize: function(operation, RegionView) {
             var _this = this;
             this.$el.html(_this.template);
             this.operation = operation;
+            this.regionView = RegionView;
+
             this.renderMainView();
-            $("body").on("rightAnswer",function(event,data){
-                _this.countDown.clear().run()
-            })
-            $("body").on("wrongAnswer",function(event,data){
-                _this.countDown.clear().run()
-            })
-            $("body").on("end",function(){
-                _this.countDown.clear();
-                //logic for determining passing
-                switch(_this.operation){
-                    case '+':
-                        new RegionView('one');
-                        break;
-                    case '-':
-                        new RegionView('two');
-                        break;
-                    case '*':
-                        new RegionView('three');
-                        break;
-                    case '/':
-                        new RegionView('four');
-                        break;
-                }
-            })
         },
 
-        renderMainView:function(){
+        renderMainView: function() {
             var myMainView = new MainView({
                 el:$("#mainContainer")
-            })
+            });
             this.startGame();
         },
 
-        startGame:function(){
+        startGame: function() {
             var upperLimit = 12;
             var operation = this.operation;
             var totalQuestions = 4;
@@ -88,7 +66,7 @@ define([
             this.countDown.run();
         },
 
-        countDown:{
+        countDown: {
             run: function() {
                 var newTimer = $("<div class='bar'></div>");
                 $("#timerContainer").append(newTimer);
@@ -105,6 +83,42 @@ define([
                 $(".bar").remove();
                 return this;
             }
+        },
+
+        /**
+         *
+         * @param event object
+         * @param isRightAnswer Boolean
+         */
+        answerQuestion: function(event, isRightAnswer) {
+            // Stop timer
+            this.countDown.clear().run()
+            // @TODO User boolean argument to determine if question was answered correctly
+        },
+
+        endStage: function(event) {
+            //logic for determining passing
+            RegionView = this.regionView;
+            switch(this.operation){
+                case '+':
+                    new RegionView('one');
+                    break;
+                case '-':
+                    new RegionView('two');
+                    break;
+                case '*':
+                    new RegionView('three');
+                    break;
+                case '/':
+                    new RegionView('four');
+                    break;
+            }
+
+        },
+
+        events: {
+            answerQuestion: 'answerQuestion',
+            endStage: 'endStage'
         }
     });
 
