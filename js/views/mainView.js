@@ -6,69 +6,74 @@ define([
     'text!templates/MainView.html'
 ], function($, _, Backbone,MathBeast,template) {
 
-	var MainView = Backbone.View.extend({
+    var MainView = Backbone.View.extend({
 
-		template:template,
+        template:template,
 
-		initialize:function(){
-			var _this = this;
-			this.$el.html(_this.template);
+        initialize:function(){
+            var _this = this;
+            this.$el.html(_this.template);
 
-		},
-		checkAndContinue:function(e){
+        },
+        checkAndContinue:function(e){
 
-		    // Get current question
-		    var result = MathBeast.attempt($(e.target).html());
-		    
-		    if (result.rightAnswer) {
+            // Get current question
+            var result = MathBeast.attempt($(e.target).html());
 
-		      //reinitialize the timer
-		      $("body").trigger("rightAnswer")
-		      console.log("Right Answer");
-			  
-			} else {
-			  $("body").trigger("wrongAnswer")
-		      console.log("Wrong Answer.");
-		    }
-		      if (result.nextQuestion) {
+            if (result.rightAnswer) {
 
-		        var question = result.nextQuestion;
+                //reinitialize the timer
+                $("body").trigger("rightAnswer")
+                console.log("Right Answer");
 
-		        // Update question number
-		        $('#question--number').text(MathBeast.currentQuestion + 1);
+            } else {
 
-		        // Fill in question and answer values on markup
-		        $('#question--operand-1').text(question.operand1);
-		        $('#question--operation').text(question.operation);
-		        $('#question--operand-2').text(question.operand2);
-		        $('#answers--option-1').text(question.answerOptions[0]);
-		        $('#answers--option-2').text(question.answerOptions[1]);
-		        $('#answers--option-3').text(question.answerOptions[2]);
-		      } else {
-		      	$("body").trigger("end");
-		        var attempts = MathBeast.attempts;
-		        var totalQuestions = MathBeast.settings.totalQuestions;
+                $("body").trigger("wrongAnswer")
+                console.log("Wrong Answer.");
 
-		        console.log("Game Over!");
-		        console.log("Questions: " + totalQuestions);
-		        console.log("Attempts: " + attempts);
+            }
 
-		        // Disable multiple choices
-		        $('#answers--option-1').attr('disabled', 'disabled');
-		        $('#answers--option-2').attr('disabled', 'disabled');
-		        $('#answers--option-3').attr('disabled', 'disabled');
+            if (result.nextQuestion) {
 
+                var question = result.nextQuestion;
 
-		        $('main .results').text('Game Over! You answered ' + totalQuestions +
-		          ' question(s) in ' + attempts + ' attempts.');
-		        $('main .message').text('Click Start to play again.');
-		        $('main .status').fadeIn();
-		      }
-		},
-		events:{
-			'click .answer-option':'checkAndContinue'
-		}
-	});
+                // Update question number
+                $('#question--number').text(MathBeast.currentQuestion + 1);
+
+                // Fill in question and answer values on markup
+                $('#question--operand-1').text(question.operand1);
+                $('#question--operation').text(question.operation);
+                $('#question--operand-2').text(question.operand2);
+                $('#answers--option-1').text(question.answerOptions[0]);
+                $('#answers--option-2').text(question.answerOptions[1]);
+                $('#answers--option-3').text(question.answerOptions[2]);
+
+            } else {
+
+                $("body").trigger("end");
+                var attempts = MathBeast.attempts;
+                var totalQuestions = MathBeast.settings.totalQuestions;
+
+                console.log("Game Over!");
+                console.log("Questions: " + totalQuestions);
+                console.log("Attempts: " + attempts);
+
+                // Disable multiple choices
+                $('#answers--option-1').attr('disabled', 'disabled');
+                $('#answers--option-2').attr('disabled', 'disabled');
+                $('#answers--option-3').attr('disabled', 'disabled');
+
+                $('main .results').text('Game Over! You answered ' + totalQuestions +
+                    ' question(s) in ' + attempts + ' attempts.');
+                $('main .message').text('Click Start to play again.');
+                $('main .status').fadeIn();
+
+            }
+        },
+        events:{
+            'click .answer-option':'checkAndContinue'
+        }
+    });
 
     return MainView;
 });
