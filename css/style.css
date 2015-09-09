@@ -12,12 +12,10 @@ body,
 #mathBeast-container {
     display: inline-block;
 }
-/* General */
 
 body {
     background-color: #f8f8f8;
 }
-/* Main */
 
 main {
     background-color: #fff;
@@ -38,10 +36,26 @@ main {
     padding: 20px 0 40px;
     display: none;
 }
+
 .answers button:focus{
-    background:white;
 	outline:0;
 }
+
+.answers .btn {
+    display: block;
+    padding: 45px 12px;
+    margin-bottom: 1em;
+    font-size: 30px;
+}
+
+.answers .btn-default {
+    background-color: #99D6AD;
+}
+
+.answers .btn-default:hover {
+    background-color: #009933;
+}
+
 .timer {
     display: none;
     padding: 20px 0 40px;
