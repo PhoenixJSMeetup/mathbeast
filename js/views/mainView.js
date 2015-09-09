@@ -25,6 +25,11 @@ define([
 		      //reinitialize the timer
 		      $("body").trigger("rightAnswer")
 		      console.log("Right Answer");
+			  
+			} else {
+			  $("body").trigger("wrongAnswer")
+		      console.log("Wrong Answer.");
+		    }
 		      if (result.nextQuestion) {
 
 		        var question = result.nextQuestion;
@@ -59,9 +64,6 @@ define([
 		        $('main .message').text('Click Start to play again.');
 		        $('main .status').fadeIn();
 		      }
-		    } else {
-		      console.log("Wrong Answer. Try Again");
-		    }
 		},
 		events:{
 			'click .answer-option':'checkAndContinue'

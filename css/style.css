@@ -38,7 +38,10 @@ main {
     padding: 20px 0 40px;
     display: none;
 }
-
+.answers button:focus{
+    background:white;
+	outline:0;
+}
 .timer {
     display: none;
     padding: 20px 0 40px;

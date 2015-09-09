@@ -23,6 +23,9 @@ define([
       $("body").on("rightAnswer",function(event,data){
         _this.countDown.clear().run()
       })
+	  $("body").on("wrongAnswer",function(event,data){
+        _this.countDown.clear().run()
+      })
       $("body").on("end",function(){
         _this.countDown.clear();
         //logic for determining passing

@@ -168,7 +168,7 @@
         if (attemptedAnswer == currentQuestion.answer) {
           // Update result type
           result.rightAnswer = true;
-
+		}
           // Get next question, if any
           var nextQuestion = this.getNextQuestion();
 
@@ -176,7 +176,7 @@
           if (nextQuestion !== false) {
             result.nextQuestion = nextQuestion;
           }
-        }
+        
 
         return result;
       },
