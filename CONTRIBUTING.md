@@ -29,8 +29,7 @@ bug fix is complete, submit a pull request on GitHub.com.
 
 ##Set Up Development Environment
 You won't need an http server, but you'll need to compile Less files into CSS.
-Below are instructions on how to set up your environment to run gulp tasks
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage. Or you can simply add `/tree/BRANCH_NAME` to the URL to go to the branch you want to peek at.
+Below are instructions on how to set up your environment to run gulp tasks.
 
 1. Make sure you have these installed
   - [node.js](http://nodejs.org/)
