@@ -22,10 +22,10 @@ your development environment to start contributing.
 - Follow the conventions provided on [Crockford's guide](http://javascript.crockford.com/code.html)
 
 ##Code Review Workflow (GitHub Flow)
-- Contributing is easy. Mathbeast administrators can create a feature branch off the current
-development branch (i.e. mvp4) and create a pull request the feature (or bug fix) is complete.
-- Non administrators can fork Mathbeast to work on a feature or bug fix. Once said feature or
-bug fix is complete, submit a pull request on GitHub.com.
+- Contributing is as easy as 1, 2, 3. 
+1. Fork the Mathbeast repo.
+2. Create a feature branch from the current development branch (i.e. mvp4) and contribute code to the feature branch.
+3. When you're done working on a feature, push your commited code to your forked repository and create a pull request. Once a pull request is created, an administrator will review your code and merge it into the development branch.
 
 ##Set Up Development Environment
 You won't need an http server, but you'll need to compile Less files into CSS.
