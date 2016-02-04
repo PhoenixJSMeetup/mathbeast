@@ -6,6 +6,8 @@
 require.config({
     waitSeconds: 60,
     paths: {
+        reactdom: 'lib/react-0.14.7/build/react-dom',
+        react: 'lib/react-0.14.7/build/react',
         jquery: 'lib/jquery/jquery-2.1.3.min',
         underscore: 'lib/underscore.min',
         backbone: 'lib/backbone.min',

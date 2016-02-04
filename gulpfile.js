@@ -1,4 +1,4 @@
-var gulp = require('gulp')
+var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
 var browserSync = require('browser-sync');
@@ -9,7 +9,7 @@ gulp.task('less', function () {
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
     .pipe(gulp.dest('./css'))
-    .pipe(browserSync.stream());;
+    .pipe(browserSync.stream());
 });
 
 
