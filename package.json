@@ -1,24 +1,28 @@
 {
   "name": "mathbeast",
-  "version": "1.0.0",
-  "description": "Math game - http://phoenixjsmeetup.github.io/mathbeast/",
+  "version": "0.0.1",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Oh-KPond/mathbeast.git"
+    "url": "git+https://github.com/PhoenixJSMeetup/mathbeast.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Oh-KPond/mathbeast/issues"
+    "url": "https://github.com/PhoenixJSMeetup/mathbeast/issues"
   },
-  "homepage": "https://github.com/Oh-KPond/mathbeast#readme",
-  "devDependencies": {
-    "browser-sync": "^2.9.3",
+  "homepage": "https://github.com/PhoenixJSMeetup/mathbeast#readme",
+  "dependencies": {
+    "babel": "^6.3.26",
     "gulp": "^3.9.0",
-    "gulp-less": "^3.0.3"
+    "jquery": "^2.2.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
   }
 }
