@@ -20,4 +20,4 @@ To run browser sync `gulp serve`
 
 For more help setting up a comprehensive Gulp.js workflow, check out [Web Project Workflows with Gulp.js, Git, and Browserify](http://www.lynda.com/Web-Web-Design-tutorials/Web-Project-Workflows-Gulpjs-Git-Browserify/154416-2.html).
 
-For more instructions see [CONTRIBUTING.md](https://github.com/PhoenixJSMeetup/mathbeast/blob/master/CONTRIBUTING.md)
+For more instructions see [CONTRIBUTING.md](https://github.com/PhoenixJSMeetup/mathbeast/blob/mvp4/CONTRIBUTING.md)
