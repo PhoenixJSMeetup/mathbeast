@@ -75,6 +75,8 @@ define([
                     "width": "0",
                     "padding": "0"
                 }, time, function() {
+                    console.log();
+                    $("#mainContainer").trigger('checkAndContinue');
                     this.remove();
                 })
             },
@@ -92,8 +94,8 @@ define([
          */
         answerQuestion: function(event, isRightAnswer) {
             // Stop timer
-            this.countDown.clear().run()
-            // @TODO User boolean argument to determine if question was answered correctly
+            this.countDown.clear().run();
+            // @TODO Use boolean argument to determine if question was answered correctly
         },
 
         endStage: function(event) {

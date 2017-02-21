@@ -15,12 +15,12 @@ define([
             this.$el.html(_this.template);
 
         },
-        checkAndContinue: function(e) {
+        checkAndContinue: function(value) {
 
             // Once an attempt is made, a result object is returned.
             // This object contains information about the
             // correctness of the answer choice.
-            var result = MathBeast.attempt($(e.target).html());
+            var result = MathBeast.attempt(value);
 
             // Calling the answerQuestion event will clear the timer
             this.$el.trigger("answerQuestion", result.rightAnswer);
@@ -58,8 +58,12 @@ define([
 
             }
         },
+        clickOnAnswer: function(e) {
+            this.checkAndContinue($(e.target).html());
+        },
         events: {
-            'click .answer-option':'checkAndContinue'
+            'click .answer-option': 'clickOnAnswer',
+            'checkAndContinue': 'checkAndContinue'
         }
     });
 
